@@ -2,11 +2,11 @@
 
 | Name         | ID Number                | Contribution |
 |-----------------|-----------------------|-------------|
-| PIYUSH JAJRA       | 2021B4A72969H      | to be updated |
-| PRAKSHAAL VORA     | 2021B3A72967H      | to be updated |
-| TANMAY AGARWAL     | 2021B3A73040H      | to be updated |
-| KUSH DESAI         | 2021B4A73158H      | to be updated |
-| JAI GUPTA         | 2021B5A73169H       | to be updated |
+| PIYUSH JAJRA       | 2021B4A72969H      | Implementation of Algorithms |
+| PRAKSHAAL VORA     | 2021B3A72967H      | Website building, Data Preprocessing and Report. |
+| TANMAY AGARWAL     | 2021B3A73040H      | Implementation of Algorithms |
+| KUSH DESAI         | 2021B4A73158H      | Implementation of Algorithms |
+| JAI GUPTA         | 2021B5A73169H       | Website building, Data Preprocessing and Report. |
 
 ---
 <br>
