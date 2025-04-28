@@ -27,7 +27,9 @@ Ensure your system has the following:
 
 ## Compilation and Execution
 
-In all the below commands, make sure to **REPLACE** the `"input_file"` with the file name of the datasets as specified below:
+In all the below commands, make sure to do the following:
+- **REPLACE** the `"h_value"` with an appropriate integer value whose clique intensity you want to calculate
+- And **REPLACE** the `"input_file.txt"` with the file name of the datasets as specified below:
 
 | Dataset         | File Name                 |
 |-----------------|---------------------------|
@@ -43,8 +45,8 @@ In all the below commands, make sure to **REPLACE** the `"input_file"` with the 
 
 To compile and run the program-
 ```bash
-g++ core.cpp
-./a.out < "input_file"
+g++ core.cpp -O2 -std=c++17
+./a.out "input_file.txt" "h_value"
 ```
 
 
@@ -52,8 +54,8 @@ g++ core.cpp
 
 To compile and run the program-
 ```bash
-g++ exact.cpp
-./a.out < "input_file"
+g++ exact.cpp -O2 -std=c++17
+./a.out "input_file.txt" "h_value"
 ```
 
 <br>
