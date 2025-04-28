@@ -1,1 +1,60 @@
-# Density_Subgraph_Discovery
+# Group Members
+
+| Name         | ID Number                | Contribution |
+|-----------------|-----------------------|-------------|
+| PIYUSH JAJRA       | 2021B4A72969H      | to be updated |
+| PRAKSHAAL VORA     | 2021B3A72967H      | to be updated |
+| TANMAY AGARWAL     | 2021B3A73040H      | to be updated |
+| KUSH DESAI         | 2021B4A73158H      | to be updated |
+| JAI GUPTA         | 2021B5A73169H       | to be updated |
+
+---
+<br>
+
+# ⚙️ Setup & Compilation
+
+<br>
+
+## Prerequisites
+Ensure your system has the following:
+
+- **Ubuntu Operating System**
+- **GCC Compiler** (`gcc` installed)
+
+---
+
+<br>
+
+## Compilation and Execution
+
+In all the below commands, make sure to **REPLACE** the `"input_file"` with the file name of the datasets as specified below:
+
+| Dataset         | File Name                 |
+|-----------------|---------------------------|
+| netscience       | `netscience.txt` |
+| yeast     | `yeast.txt` |
+| CA      | `CA.txt`  |
+
+---
+
+<br>
+
+### 1) For Core Algorithm:
+
+To compile and run the program-
+```bash
+g++ core.cpp
+./a.out < "input_file"
+```
+
+<br>
+
+### 2) For Exact Algorithm:
+
+To compile and run the program-
+```bash
+g++ exact.cpp
+./a.out < "input_file"
+```
+
+<br>
