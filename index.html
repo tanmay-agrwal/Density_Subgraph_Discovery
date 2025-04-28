@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Densest Subgraph Discovery: Experimental Comparison</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <h1>Densest Subgraph Discovery: Experimental Comparison</h1>
+            <p class="subtitle">Comparing Density Results from Implementations</p>
+        </header>
+
+        
+        <section id="background">
+            <h2>The Challenge of Exact Densest Subgraph Discovery</h2>
+            <p>Finding the absolute densest subgraph within a network is a fundamental problem with broad applications, from identifying cohesive social communities to discovering significant biological modules. Algorithms guaranteeing the discovery of this provably optimal subgraph are known as exact methods.</p>
+            <p>A standard technique for exact Densest Subgraph Discovery (DSD), represented by Algorithm 1 (Exact) in the reference paper (Fang et al., PVLDB 2019, based on earlier work like Goldberg '84), relies on solving a series of computationally intensive maximum flow / minimum cut problems. While mathematically sound, constructing and solving these flow networks on the entire graph, especially large ones, often becomes prohibitively slow, limiting its practical use.</p>
+
+            <h2>Optimization via Core Structures: The CoreExact Approach</h2>
+            <p>The key insight presented by Fang et al. is that the true densest subgraph often resides within a much smaller, structurally dense region of the graph known as a k-core (or its generalization, the (k, Ψ)-core for pattern-based densities). Vertices outside these core structures are unlikely to be part of the absolute densest subgraph.</p>
+            <p>Leveraging this, Algorithm 4 (CoreExact) introduces a significant optimization strategy:</p>
+            <ul>
+                <li>It first performs efficient core decomposition to identify the relevant, dense core(s) likely containing the solution.</li>
+                <li>This decomposition also provides tighter bounds on the maximum possible density.</li>
+                <li>Crucially, the expensive maximum flow computation is then performed only on the subgraph induced by this much smaller core, drastically reducing the size of the problem.</li>
+            </ul>
+            <p>The significance lies in achieving computational efficiency without sacrificing exactness. Algorithm 4 is designed to find the identical, provably optimal densest subgraph as Algorithm 1, but potentially orders of magnitude faster. This page explores experimental density results from implementations likely based on these two distinct approaches.</p>
+        </section>
+
+
+        <section id="interactive-results">
+            <h2>Results Explorer</h2>
+            <p>Select a dataset and the target pattern (clique size) to view the reported density values from the experiments.</p>
+
+            <div class="controls">
+                 <div class="control-group">
+                    <label for="dataset-select">Choose Dataset:</label>
+                    <div class="dataset-selector">
+                         <button class="tab-button active" data-dataset="yeast">Yeast</button>
+                         <button class="tab-button" data-dataset="netscience">Netscience</button>
+                         <button class="tab-button" data-dataset="as-caida">As-Caida</button>
+                     </div>
+                 </div>
+                 <div class="control-group">
+                    <label for="pattern-select">Choose Pattern (Clique Size):</label>
+                    <select id="pattern-select">
+                        <option value="edge" selected>Edge (h=2)</option>
+                        <option value="triangle">Triangle (h=3)</option>
+                        <option value="4-clique">4-Clique (h=4)</option>
+                        <option value="5-clique">5-Clique (h=5)</option>
+                        <option value="6-clique">6-Clique (h=6)</option>
+                    </select>
+                 </div>
+            </div>
+
+            
+            <div class="results-context">
+                 <p><strong>Note on Interpreting Results:</strong> The following table compares density values from experimental runs. While the underlying algorithms discussed in the reference paper (Fang et al., PVLDB 2019) - Algorithm 1 ("Exact") and Algorithm 4 ("CoreExact") - are both designed to be exact and thus yield the same optimal density, the results presented here show some variations. These differences arise from specific implementation choices, experimental conditions, or how density was measured or reported in these runs. </p>
+            </div>
+
+            <div id="results-display-area" class="results-card">
+                <h3 id="results-title">Results for Yeast Dataset (Edge Pattern)</h3>
+                <div class="comparison-grid">
+                    <div class="result-block">
+                        <h4>"Exact" Implementation</h4>
+                        <span class="value" id="result-exact-density">--</span>
+                    </div>
+                    <div class="result-block">
+                        <h4>"CoreExact" Implementation</h4>
+                        <span class="value" id="result-coreexact-density">--</span>
+                    </div>
+                </div>
+                 <p class="note">
+                   Density calculated based on the selected pattern type (e.g., average edges per node for 'Edge', average triangles per node for 'Triangle', etc.).
+                </p>
+            </div>
+
+             <div class="efficiency-note">
+                <h4>Theoretical Efficiency Note (from Fang et al.):</h4>
+                <p>While the results above show variations, the motivation behind the CoreExact approach (Algorithm 4) in the source paper is its significant computational efficiency. By focusing on relevant k-cores, it's designed to find the theoretically identical exact solution much faster than standard full-graph methods, making analysis feasible for larger networks.</p>
+            </div>
+        </section>
+
+
+        <footer>
+            <p>Experimental data provided by user. Background information and algorithm concepts based on: <a href="https://doi.org/10.14778/3342263.3342645" target="_blank">"Efficient Algorithms for Densest Subgraph Discovery"</a> by Fang et al., PVLDB 2019.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
