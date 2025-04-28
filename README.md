@@ -31,9 +31,9 @@ In all the below commands, make sure to **REPLACE** the `"input_file"` with the 
 
 | Dataset         | File Name                 |
 |-----------------|---------------------------|
-| netscience       | `netscience.txt` |
-| yeast     | `yeast.txt` |
-| CA      | `CA.txt`  |
+| NetScience       | `NetScience.txt` |
+| Yeast     | `Yeast.txt` |
+| Ca      | `Ca.txt`  |
 
 ---
 
@@ -47,7 +47,6 @@ g++ core.cpp
 ./a.out < "input_file"
 ```
 
-<br>
 
 ### 2) For Exact Algorithm:
 
@@ -58,3 +57,23 @@ g++ exact.cpp
 ```
 
 <br>
+
+
+# 📈 Dataset Drive Link
+
+```bash
+https://drive.google.com/drive/folders/1V3pqsE0DKso-3sb18fzmQxCL7F-JHW6f
+```
+
+---
+
+<br>
+
+
+# 🌐 Webpage
+
+```bash
+to be updated
+```
+
+---
